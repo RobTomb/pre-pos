@@ -1,5 +1,23 @@
 'use strict';
 
 function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+	let wordlist = {};
+	let str = [];
+	collection.forEach((item)=>{
+		if( item in wordlist ){
+			wordlist.item += 1;
+		}
+		else{
+			wordlist.item = 1;
+			str.push(item);
+		}
+	});
+	let countSameElements = [];
+	let countlist = {key:'',count:0};
+	str.forEach((item)=>{
+		countlist.key = item;
+		countlist.count = wordlist.item;
+		countSameElements.push(countlist);
+	});
+	return countSameElements;	
 }
