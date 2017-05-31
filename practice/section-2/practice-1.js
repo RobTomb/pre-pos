@@ -1,23 +1,32 @@
 'use strict';
-
+/**
+ * @Author:RobTomb
+ * @DateTime2017-05-29T18:13:28+0800
+ * @param                            {JS}
+ * @return                           {zero}
+ */
 function countSameElements(collection) {
 	let wordlist = {};
 	let str = [];
-	collection.forEach((item)=>{
-		if( item in wordlist ){
-			wordlist.item += 1;
+	
+	collection.forEach( (item)=>{
+		if(item in wordlist){
+			wordlist[item]+=1;
 		}
 		else{
-			wordlist.item = 1;
+			wordlist[item]=1;
 			str.push(item);
 		}
 	});
-	let countSameElements = [];
-	let countlist = {key:'',count:0};
-	str.forEach((item)=>{
-		countlist.key = item;
-		countlist.count = wordlist.item;
-		countSameElements.push(countlist);
+	
+	let countWordsList = [];
+
+	str.forEach( (item)=>{
+		let countWords = {key:'',count:0};
+		countWords['key'] = item;
+		countWords['count'] = wordlist[item];
+		countWordsList.push(countWords);
 	});
-	return countSameElements;	
+	
+	return countWordsList;
 }
